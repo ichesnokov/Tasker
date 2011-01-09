@@ -1,14 +1,14 @@
-[% META title='Просмотр задания' %]
+[% META title='View task' %]
 [% IF task %]
 <div class="task-view">
 <table>
-<tr><td><b>Создано:</b></td><td>[% task.created.date %], [% task.created.time %]</td></tr>
-<tr><td><b>Тема:</b></td><td>[% task.subject %]</td></tr>
-<tr><td><b>Описание:</b></td><td>[% task.description %]</td></tr>
-<tr><td><b>Создал:</b></td><td>[% task.creator.username %]</td></tr>
-<tr><td><b>Исполнитель:</b></td><td>
+<tr><td><b>Created:</b></td><td>[% task.created.date %], [% task.created.time %]</td></tr>
+<tr><td><b>Subject:</b></td><td>[% task.subject %]</td></tr>
+<tr><td><b>Description:</b></td><td>[% task.description %]</td></tr>
+<tr><td><b>Creator:</b></td><td>[% task.creator.username %]</td></tr>
+<tr><td><b>Owner:</b></td><td>
 [% IF c.user.get('id') == task.owner_id %]
-Вы :)
+You :)
 [% ELSE %]
 [% task.owner.username %]
 [% END  %]
@@ -16,7 +16,7 @@
 </table>
 </div>
 <div class="action-buttons">
-<span class="delete"><a href="[% c.uri_for( 'delete', task.id ) %]">Удалить</a></span>
+  <span class="delete"><a href="[% c.uri_for( 'delete', task.id ) %]">Delete</a></span>
 </div>
 
 [% FOR comment IN comments %]
@@ -29,6 +29,6 @@
 [% form %]
 
 [% ELSE %]
-<p>У вас нет заданий.<p>
+<p>You have no tasks.<p>
 [% END %]
 

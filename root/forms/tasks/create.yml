@@ -8,32 +8,32 @@ elements:
 #subject
     - type: Text
       name: subject
-      label: Тема
+      label: Subject
       attributes:
-        title: Тема
+        title: Subject
       constraints:
         - Required
 #description
     - type: Textarea
       name: description
-      label: Описание задания
+      label: Description
 #creator_id (for model)
     - type: Hidden
       name: creator_id
 #creator
     - type: Text
       name: creator_name
-      label: Создатель
+      label: Creator
       attributes:
         readonly: readonly
 #owner
     - type: Select
       name: owner_id
-      label: Исполнитель
+      label: Owner
 #submit button
     - type: Submit
       name: submit
-      value: Создать
+      value: Create
 #      attributes:
 output_processors:
     - Indent

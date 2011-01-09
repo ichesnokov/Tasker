@@ -1,9 +1,9 @@
-[% META title='Все задания' %]
-<p>Все задания</p>
+[% META title='All tasks' %]
+<p>All tasks</p>
 [% IF tasks.size %]
 <table class="tasklist">
 <tr> 
-<th>ID</th><th>Тема</th><th>Создано</th><th>Создатель</th><th>Исполнитель</th><th>Удалить</th>
+<th>ID</th><th>Subject</th><th>Created</th><th>Creator</th><th>Owner</th><th>Delete</th>
 </tr>
 [% FOREACH task IN tasks %]
 <tr>
@@ -12,10 +12,10 @@
 <td>[% task.created.date %], [% task.created.time %]</td>
 <td>[% task.creator.username %]</td>
 <td>[% task.owner.username %]</td>
-<td><a href="[% c.uri_for( 'delete', task.id ) %]">Удалить</a></td>
+<td><a href="[% c.uri_for( 'delete', task.id ) %]">Delete</a></td>
 </tr>
 [% END %]
 </table>
 [% ELSE %]
-<p>В системе нет заданий.</p>
+<p>No tasks in system.</p>
 [% END %]

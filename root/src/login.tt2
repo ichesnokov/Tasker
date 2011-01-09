@@ -1,13 +1,13 @@
-[% META title='Войти в систему' %]
+[% META title='Login' %]
 <div id="login-box">
-<fieldset>
-<legend>Вход в систему</legend>
-<form method="post">
-Имя пользователя:<br />
-<input type="text" size="50" name="login" /><br />
-Пароль:<br />
-<input type="password" size="50" name="password" /><br /><br />
-<input type="submit" name="submit" value="Вход" />
-</form>
-</fieldset>
+  <fieldset>
+  <legend>Login</legend>
+    <form method="post">
+      Login:<br />
+      <input type="text" size="50" name="login" /><br />
+      Password:<br />
+      <input type="password" size="50" name="password" /><br /><br />
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+  </fieldset>
 </div>

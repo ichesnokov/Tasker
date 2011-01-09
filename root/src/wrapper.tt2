@@ -13,16 +13,16 @@
 <div id="contentblock">
 <div id="menu">
 [% IF c.user_exists %]
-<p>Добро пожаловать, [% c.user.get('username') %]!</p> 
+<p>Welcome, [% c.user.get('username') %]!</p> 
 [% END %]
 <ul>
 [% IF c.user_exists %]
-<li><a href="[% c.uri_for( '/tasks/create' ) %]">Создать задание</a></li>
-<li><a href="[% c.uri_for( '/tasks/my' ) %]">Мои задания</a></li>
-<li><a href="[% c.uri_for( '/tasks/all' ) %]">Все задания</a></li>
-<li><a href="[% c.uri_for( '/logout' ) %]">Выход</a></li>
+<li><a href="[% c.uri_for( '/tasks/create' ) %]">Create task</a></li>
+<li><a href="[% c.uri_for( '/tasks/my' ) %]">My tasks</a></li>
+<li><a href="[% c.uri_for( '/tasks/all' ) %]">All tasks</a></li>
+<li><a href="[% c.uri_for( '/logout' ) %]">Logout</a></li>
 [% ELSE %]
-<li><a href="[% c.uri_for( '/login' ) %]">Вход</a></li>
+<li><a href="[% c.uri_for( '/login' ) %]">Login</a></li>
 [% END %]
 </ul>
 </div>

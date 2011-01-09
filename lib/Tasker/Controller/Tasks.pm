@@ -46,30 +46,38 @@ sub create :Local FormConfig {
 
     # Get HTML::FormFu form
     my $form = $c->stash->{form};
-    if ($form->submitted_and_valid) {
+    if ( $form->submitted_and_valid ) {
+
         # Create new task object
         my $task = $c->model('TaskerDB::Tasks')->new_result({});
+
         # Update model with submitted values
         $form->model->update($task);
+
         # Notify user
-        $c->flash->{message} = 'Задание добавлено';
+        $c->flash->{message} = 'Task added';
+
         # Redirect usre to his tasks
         $c->res->redirect( '/tasks/my' );
         $c->detach();
     }
     else {
+
         # Fill owners
         my @owner_objs = $c->model('TaskerDB::Users')->all();
         my @owners;
         foreach ( sort { $a->id cmp $b->id } @owner_objs ) {
             push @owners,[ $_->id, $_->username ];
         }
+
         # Fill possible owners
         my $select = $form->get_element( { type => 'Select' } );
         $select->options(\@owners);
+
         # Fill creator's id
         my $creator_id_field = $form->get_element( { type=>'Hidden', name=>'creator_id' } );
         $creator_id_field->value( $c->user->get('id') );
+
         # Fill creator
         my $creator_name_field = $form->get_element( { type=>'Text', name=>'creator_name' } );
         $creator_name_field->value( $c->user->get('username') );
@@ -86,6 +94,7 @@ Show all tasks in the database
 
 sub all :Local {
     my ( $self, $c ) = @_;
+
     # Get all tasks from model and put them to stash (unsorted)
     my @tasks = $c->model('TaskerDB::Tasks')->all();
     $c->stash->{tasks} = \@tasks;
@@ -120,9 +129,11 @@ sub view :Local Args(1) FormConfig {
 
     # Fill some form fields
     my $form = $c->stash->{form};
+
     # Fill task_id
     my $task_id_field = $form->get_element({ name=>'task_id' });
     $task_id_field->value( $id );
+
     # Fill commentator_id
     my $commentator_field = $form->get_element({ name=>'commentator_id' });
     $commentator_field->value( $c->user->get('id') );
@@ -157,24 +168,26 @@ sub delete :Local Args(1) {
 
     # Where will we go next?
     my $redirect_url;
+
     # Check user roles
     if ( $c->check_any_user_role( qw/ admin / ) ) {
         # If user has sufficient privileges, delete task from the database
         my $task_obj = $c->model('TaskerDB::Tasks')->find( $id );
         if ($task_obj) {
             $task_obj->delete;
-            $c->flash->{message} = "Задание $id удалено";
+            $c->flash->{message} = "Task $id removed";
         }
         else {
-            $c->flash->{message} = "Нет задания с id=$id";
+            $c->flash->{message} = "Bad task id: $id";
         }
-        $redirect_url = ( $c->req->referer eq $c->uri_for( $self->action_for( 'all' ) ) ) ?
-                          $c->req->referer :
-                          $c->uri_for( $self->action_for( 'my' ) ) ;
 
+        $redirect_url
+            = $c->req->referer eq $c->uri_for( $self->action_for( 'all' ) )
+            ? $c->req->referer
+            : $c->uri_for( $self->action_for( 'my' ) ); 
         }
     else {
-        $c->flash->{message} = "У вас недостаточно привилегий для удаления задания";
+        $c->flash->{message} = "Not enough privileges";
         $redirect_url = $c->req->referer;
     }
 

@@ -1,5 +1,5 @@
-[% META title='Страница не найдена' %]
+[% META title='Page not found' %]
 <div class="notfound">
-Извините, запрашиваемая вами страница не найдена.<br />
-Попробуйте выбрать пункт в меню или вернуться на <a href="javascript:history.back();">предыдущую страницу</a>
+Sorry, the requested page is not found.<br/>
+Choose a link from the menu or retorn <a href="javascript:history.back();">to a previous page</a>.
 </div>

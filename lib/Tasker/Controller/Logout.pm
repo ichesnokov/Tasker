@@ -28,9 +28,10 @@ Log user out
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    if ($c->user){
+    if ( $c->user ) {
+
         $c->logout();
-        $c->flash->{message} = 'Вы вышли из системы';
+        $c->flash->{message} = 'You are logged out';
     } 
     $c->res->redirect( '/login' );
 }

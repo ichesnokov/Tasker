@@ -31,18 +31,25 @@ sub index :Path Args(0) {
     # Get username and password from submitted values
     my $username = $c->req->params->{login};
     my $password = $c->req->params->{password};
+
     if ( $username && $password ){
+
         # Try to authenticate user
         if ( $c->authenticate( { username => $username,
                                  password => $password } ) ) {
+
             # If authentication succeedes, tell user about it
-            $c->flash->{message} = 'Вы вошли в систему как ' . $c->user->get('username') . '<br />';
+            $c->flash->{message} = 'You logged in as ' . $c->user->get('username') . '<br />';
+
             # And redirect user to his tasks
             $c->res->redirect( '/tasks/my' );
             $c->detach;
-        } else {
+        }
+        else {
+
             # If authentication fails, tell user about it
-            $c->flash->{message} = 'Неверное имя пользователя или пароль';
+            $c->flash->{message} = 'Wrong username or password';
+
             # Redirect back to login page
             $c->res->redirect( '/login ');
             $c->detach;

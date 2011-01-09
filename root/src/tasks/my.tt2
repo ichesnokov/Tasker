@@ -1,9 +1,9 @@
-[% META title='Мои задания' %]
-<p>Задания, назначенные Вам:</p>
+[% META title='My tasks' %]
+<p>Tasks, assigned to you:</p>
 [% IF tasks.size %]
 <table class="tasklist">
 <tr> 
-<th>ID</th><th>Тема</th><th>Создано</th><th>Создатель</th>
+<th>ID</th><th>Subject</th><th>Created</th><th>Owner</th>
 </tr>
 [% FOREACH task IN tasks %]
 <tr>
@@ -15,5 +15,5 @@
 [% END %]
 </table>
 [% ELSE %]
-<p>У вас нет заданий.</p>
+<p>You have no assigned tasks.</p>
 [% END %]
