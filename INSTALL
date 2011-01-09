@@ -1,0 +1,15 @@
+1. mysql -u root -pXXXXX < /etc/tasker.sql
+
+   This creates a 'tasker' database and assigns privileges on it
+   to tasker_user user.
+
+   Users 'user' with password 'user' and 'admin' with password 'admin'
+   will be created automatically.
+
+2. perl Makefile.PL && make
+
+3. Run script/tasker_server.pl to test the application.
+
+4. Point your browser to http://localhost:3000, login with user or admin access
+   and try to operate on tickets.
+
