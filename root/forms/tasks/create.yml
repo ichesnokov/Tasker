@@ -1,0 +1,39 @@
+---
+indicator: submit
+#auto_fieldset: { id: create-form }
+action: '/tasks/create'
+attributes:
+    class: create-form
+elements:
+#subject
+    - type: Text
+      name: subject
+      label: Тема
+      attributes:
+        title: Тема
+      constraints:
+        - Required
+#description
+    - type: Textarea
+      name: description
+      label: Описание задания
+#creator_id (for model)
+    - type: Hidden
+      name: creator_id
+#creator
+    - type: Text
+      name: creator_name
+      label: Создатель
+      attributes:
+        readonly: readonly
+#owner
+    - type: Select
+      name: owner_id
+      label: Исполнитель
+#submit button
+    - type: Submit
+      name: submit
+      value: Создать
+#      attributes:
+output_processors:
+    - Indent

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+<link rel="stylesheet" href="[% c.uri_for( '/css/style.css' ) %]" />
+[% title = template.title || 'Catalyst application' %]
+<title>[% title %]</title>
+</head>
+<body>
+<div id="header">
+<h1>[% title %]</h1>
+</div>
+<div id="contentblock">
+<div id="menu">
+[% IF c.user_exists %]
+<p>Добро пожаловать, [% c.user.get('username') %]!</p> 
+[% END %]
+<ul>
+[% IF c.user_exists %]
+<li><a href="[% c.uri_for( '/tasks/create' ) %]">Создать задание</a></li>
+<li><a href="[% c.uri_for( '/tasks/my' ) %]">Мои задания</a></li>
+<li><a href="[% c.uri_for( '/tasks/all' ) %]">Все задания</a></li>
+<li><a href="[% c.uri_for( '/logout' ) %]">Выход</a></li>
+[% ELSE %]
+<li><a href="[% c.uri_for( '/login' ) %]">Вход</a></li>
+[% END %]
+</ul>
+</div>
+<div id="content">
+<span id="message">[% message %]</span>
+    [% content %]
+</div>
+</div>
+<div id="footer">
+Copyright &copy; by Ilya A. Chesnokov
+</div>
+</body>
+</html>

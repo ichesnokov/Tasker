@@ -1,0 +1,34 @@
+[% META title='Просмотр задания' %]
+[% IF task %]
+<div class="task-view">
+<table>
+<tr><td><b>Создано:</b></td><td>[% task.created.date %], [% task.created.time %]</td></tr>
+<tr><td><b>Тема:</b></td><td>[% task.subject %]</td></tr>
+<tr><td><b>Описание:</b></td><td>[% task.description %]</td></tr>
+<tr><td><b>Создал:</b></td><td>[% task.creator.username %]</td></tr>
+<tr><td><b>Исполнитель:</b></td><td>
+[% IF c.user.get('id') == task.owner_id %]
+Вы :)
+[% ELSE %]
+[% task.owner.username %]
+[% END  %]
+</td></tr>
+</table>
+</div>
+<div class="action-buttons">
+<span class="delete"><a href="[% c.uri_for( 'delete', task.id ) %]">Удалить</a></span>
+</div>
+
+[% FOR comment IN comments %]
+<div class="comment">
+<p class="comment-text">[% comment.comment_text %]</p>
+<p class="commentator">From [% comment.commentator.username %] at [% comment.created.date %], [% comment.created.time %]</p>
+</div>
+[% END %]
+
+[% form %]
+
+[% ELSE %]
+<p>У вас нет заданий.<p>
+[% END %]
+

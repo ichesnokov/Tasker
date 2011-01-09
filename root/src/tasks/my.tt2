@@ -1,0 +1,19 @@
+[% META title='Мои задания' %]
+<p>Задания, назначенные Вам:</p>
+[% IF tasks.size %]
+<table class="tasklist">
+<tr> 
+<th>ID</th><th>Тема</th><th>Создано</th><th>Создатель</th>
+</tr>
+[% FOREACH task IN tasks %]
+<tr>
+<td><a href="[% c.uri_for( '/tasks', 'view', task.id ) %]">[% task.id      %]</a></td>
+<td><a href="[% c.uri_for( '/tasks', 'view', task.id ) %]">[% task.subject %]</a></td>
+<td>[% task.created.date %], [% task.created.time  %]</td>
+<td>[% task.creator.username %]</td>
+</tr>
+[% END %]
+</table>
+[% ELSE %]
+<p>У вас нет заданий.</p>
+[% END %]

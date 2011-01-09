@@ -1,0 +1,20 @@
+---
+indicator: submit
+elements:
+    - type: Textarea
+      name: comment_text
+      label: "Комментарий:"
+      attributes:
+            rows: 10
+            cols: 40
+    - type: Submit
+      name: submit
+      value: Добавить комментарий
+#additional fields (filled in runtime)
+    - type: Hidden
+      name: commentator_id
+#      value: "1"
+    - type: Hidden
+      name: task_id
+#      value: "7"
+    

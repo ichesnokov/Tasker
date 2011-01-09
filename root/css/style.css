@@ -1,0 +1,108 @@
+#header {
+    text-align: center;
+    background-color: #AAB;
+    padding: 3px;
+}
+
+#menu {
+    float: left;
+    width: 180px;
+/*    height: 300px; */
+    background-color: #AAB;
+}
+
+#menu ul {
+    padding-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #533;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+#menu ul li {
+    list-style: circle;
+    padding: 0;
+    margin: 0;
+}
+
+#menu p {
+    margin: 10px 10px 0 15px;
+    font-style: italic;
+}
+
+#content {
+    background-color: #DDC;
+    min-height: 300px;
+    margin: 5px 5px 0 190px;
+    padding: 5px;
+}
+
+#message {
+    font-style: italic;
+}
+
+#footer {
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 5px;
+    background-color: #9AA;
+    /* width: 300px; */
+}
+
+
+#login-box {
+    width: 360px;
+}
+
+.label label {
+    display: block;
+}
+.submit {
+    padding-top: .5em;
+}
+table.tasklist {
+    border-style: inset;
+    border-width: 1px;
+    border-spacing: 1px;
+}
+table.tasklist td,th {
+    border-width: 1px;
+    padding: 1px;
+    border-style: outset;
+    padding: 2px 5px 2px 5px;
+
+}
+
+.create-form {
+    padding: 5px;
+}
+
+.action-buttons {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+/* Comments styles */
+.comment {
+    border: 1px dotted #9AA;
+    margin: 2px;
+}
+.comment-text {
+    margin-left: 5px;
+}
+.commentator {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    margin-right: 5px;
+}
+
+/* End comments styles */
