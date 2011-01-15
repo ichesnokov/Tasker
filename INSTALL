@@ -1,4 +1,8 @@
+To install Tasker type the following:
+
 1. mysql -u root -pXXXXX < /etc/tasker.sql
+
+   Where XXXXX is your MySQL root password.
 
    This creates a 'tasker' database and assigns privileges on it
    to tasker_user user.
@@ -10,6 +14,5 @@
 
 3. Run script/tasker_server.pl to test the application.
 
-4. Point your browser to http://localhost:3000, login with user or admin access
+4. Point your browser to http://localhost:3000, log in with user or admin access
    and try to operate on tickets.
-
