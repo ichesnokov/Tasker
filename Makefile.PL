@@ -26,7 +26,7 @@ requires (
     'Catalyst::Controller::HTML::FormFu' => '0',
     'HTML::FormFu::Model::DBIC' => '0',
     'Template::Stash::ForceUTF8' => '0',
-    'DBIx::Class::UTF8Coluns' => '0',
+    'DBIx::Class::UTF8Columns' => '0',
 );
 
 catalyst;
